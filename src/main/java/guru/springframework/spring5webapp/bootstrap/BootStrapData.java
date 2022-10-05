@@ -33,6 +33,7 @@ public class BootStrapData implements CommandLineRunner {
         //cria a ligação entre os dois, adicionando os elementos
         bukowski.getBooks().add(book);
         book.getAuthors().add(bukowski);
+
         //salvando no banco de dados, lembrar que todas as funcionalidades envolvendo banco estará na repository
         authorRepository.save(bukowski);
         bookRepository.save(book);
@@ -50,10 +51,24 @@ public class BootStrapData implements CommandLineRunner {
                 "Joao Pessoa", "3213213" );
 
         publisherRepository.save(amazon);
+
+        book.setPublisher(amazon);
+        book1.setPublisher(amazon);
+
+        amazon.getBookSet().add(book);
+        amazon.getBookSet().add(book1);
+        bookRepository.save(book);
+        bookRepository.save(book1);
+
+        publisherRepository.save(amazon);
         System.out.println("Started in Bootstrap");
         System.out.println("Number of books: " + bookRepository.count());
         System.out.println("Number of Authors: " + authorRepository.count());
         System.out.println("Number of Publishers "+ publisherRepository.count());
+        System.out.println("Publisher number of books "+ publisherRepository.count());
+        System.out.println("Publisher number of books "+ amazon.getBookSet().size());/*aqui é como se eu estivesse
+        pegando o objeto da tabela*/
+
 
     }
 
