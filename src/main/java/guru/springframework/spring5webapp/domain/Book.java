@@ -1,6 +1,7 @@
 package guru.springframework.spring5webapp.domain;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,8 +31,6 @@ public class Book {
     public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
     }
-
-
 
     public Book(String title, String isbn) {
         this.title = title;

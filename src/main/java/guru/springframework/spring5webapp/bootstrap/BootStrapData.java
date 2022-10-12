@@ -28,6 +28,11 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+
+        Publisher amazon = new Publisher("Amazon","QR 327 conjunto 2","Paraíba",
+                "Joao Pessoa", "3213213" );
+
         Author bukowski = new Author("Charles", "Bukowski");
         Book book = new Book("Mulheres","798273");
         //cria a ligação entre os dois, adicionando os elementos
@@ -47,9 +52,6 @@ public class BootStrapData implements CommandLineRunner {
         authorRepository.save(stewart);
         bookRepository.save(book1);
 
-        Publisher amazon = new Publisher("Amazon","QR 327 conjunto 2","Paraíba",
-                "Joao Pessoa", "3213213" );
-
         publisherRepository.save(amazon);
 
         book.setPublisher(amazon);
@@ -61,6 +63,13 @@ public class BootStrapData implements CommandLineRunner {
         bookRepository.save(book1);
 
         publisherRepository.save(amazon);
+
+        bukowski.getBooks().add(book1);
+        book1.getAuthors().add(bukowski);
+
+        authorRepository.save(bukowski);
+        bookRepository.save(book1);
+
         System.out.println("Started in Bootstrap");
         System.out.println("Number of books: " + bookRepository.count());
         System.out.println("Number of Authors: " + authorRepository.count());

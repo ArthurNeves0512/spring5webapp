@@ -1,6 +1,7 @@
 package guru.springframework.spring5webapp.domain;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -112,5 +113,10 @@ public class Publisher {
                 ", state='" + state + '\'' +
                 ", zip='" + zip + '\'' +
                 '}';
+    }
+    public void addBookset(Book ... bookss){
+        for(Book books: bookss){
+            this.bookSet.add(books);
+        }
     }
 }
