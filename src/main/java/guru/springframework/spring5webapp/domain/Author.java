@@ -1,5 +1,9 @@
 package guru.springframework.spring5webapp.domain;
 
+import guru.springframework.spring5webapp.repositories.AuthorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -78,4 +82,10 @@ public class Author {
         return id != null ? id.hashCode() : 0;
     }
 
+    public void addBooks(Book ... books){
+        for(Book bookss : books){
+            this.books.add(bookss);
+
+        }
+    }
 }

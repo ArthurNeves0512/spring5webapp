@@ -94,4 +94,10 @@ public class Book {
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
     }
+
+    public void addAuthor(Author ... authors){
+        for(Author authorss: authors){
+            this.authors.add(authorss);
+        }
+    }
 }
