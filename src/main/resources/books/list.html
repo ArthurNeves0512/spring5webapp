@@ -2,8 +2,6 @@
 <html lang="en" xmlns th="www.https://thymeleaft.org">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
@@ -16,8 +14,8 @@
     </tr >
     <tr th:each="book: ${books}">
     <td th:text="${book.id}">123</td>
-    <td th:title="${book.title}">Spring in action</td>
-    <td th:tex="${book.publisher.name}">wrox</td>
+    <td th:text="${bookdd}">Spring in action</td>
+    <td th:text="${book.publisher.name}">wrox</td>
     </tr>
 
 </table>
